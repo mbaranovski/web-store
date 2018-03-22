@@ -1,0 +1,39 @@
+# import Post, CategoryCreateInput, Item from "./generated/prisma.graphql"
+
+type Query {
+    me: User
+    item(id: ID!): Item
+    items: [Item!]!
+}
+
+type Mutation {
+    signup(email: String!, password: String!, name: String!): AuthPayload!
+    login(email: String!, password: String!): AuthPayload!
+
+    createCategory(data: CategoryCreateInput!): Category!
+}
+
+type AuthPayload {
+    token: String!
+    user: User!
+}
+
+type User {
+    id: ID!
+    email: String!
+    name: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Category {
+    id: ID!
+    name: String!
+    description: String
+    items: [Item!]!
+}
+
+type ItemType {
+    id: ID!
+    name: String!
+}

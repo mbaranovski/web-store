@@ -1,0 +1,31 @@
+type User {
+    id: ID! @unique
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    email: String! @unique
+    password: String!
+    name: String!
+}
+
+type Item {
+    id: ID! @unique
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    isPublished: Boolean! @default(value: "false")
+    name: String!
+    description: String
+    category: Category!
+    type: ItemType!
+}
+
+type Category {
+    id: ID! @unique
+    name: String!
+    description: String
+    items: [Item!]!
+}
+
+type ItemType {
+    id: ID! @unique
+    name: String!
+}

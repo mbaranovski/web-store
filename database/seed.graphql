@@ -1,0 +1,8 @@
+mutation {
+    createCategory(data: {
+        name: "Naturalne",
+        description: "Kategoria zawierająca produkty naturalne."
+    }) {
+        id
+    }
+}
